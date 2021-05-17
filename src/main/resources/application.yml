@@ -4,6 +4,6 @@ micronaut:
 
 api:
   discord:
-    key: ODQwNTkyOTc4Mjk2MzA3NzMz.YJadNw.yIA4jsD9jidZFMgbRb_XvHOl3NI
+    key: ENC(3pCUpvPQWxp7mTi4dVB1jV+gY2pNizDwgl09g3B+0tzsXDKGrfb0DDWVlEC5IYgnURxNrOx07ZUaGGgaM+TA1MwAM8LMYXwgDbCFuFDj2vxJfIwBs6HsNFc5cOxWuwta)
   weather:
-    key: ee58a6771184b2e02c363e99a0e930e8
+    key: ENC(OAXosKvEg5dk6bLjIVmoX3p0D6a3Wbo1P9GyZFKt4+enw4Tro8QYj6ti4SI766rvk/z3LL3OTSZxSeG/avk/0InlO0BzvNuM6Wkyci7v7zo=)
