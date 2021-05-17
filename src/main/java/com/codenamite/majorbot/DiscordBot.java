@@ -45,6 +45,5 @@ class DiscordBot {
         discordCommands.registerCommands(client);
         LOGGER.info("Commands registered");
         client.onDisconnect().block();
-        LOGGER.info("Ready to rumble!");
     }
 }
