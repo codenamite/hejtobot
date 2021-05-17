@@ -1,0 +1,9 @@
+micronaut:
+  application:
+    name: hejtobot
+
+api:
+  discord:
+    key: ODQwNTkyOTc4Mjk2MzA3NzMz.YJadNw.yIA4jsD9jidZFMgbRb_XvHOl3NI
+  weather:
+    key: ee58a6771184b2e02c363e99a0e930e8
