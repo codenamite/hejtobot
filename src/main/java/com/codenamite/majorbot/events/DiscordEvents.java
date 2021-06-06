@@ -11,7 +11,6 @@ import discord4j.core.object.entity.User;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -22,18 +21,17 @@ public class DiscordEvents {
     private WeatherApiClient weatherApiClient;
     private static Map<String, String> commands;
 
-    public void createEvents(GatewayDiscordClient client) throws IOException {
+    public void createEvents(GatewayDiscordClient client) {
         client.getEventDispatcher().on(ReadyEvent.class)
                 .subscribe(readyEvent -> {
                     User self = readyEvent.getSelf();
                     System.out.printf(
                             "Logged in as %s#%s%n", self.getUsername(), self.getDiscriminator());
                 });
-        registerResponse(client, "Majorze gówno", "Zjedz se równo");
-        registerResponse(client, "Majorze test", "Ja sie stqd wprowadze!");
-        registerResponse(client, "Majorze jedz", "https://tenor.com/ba6un.gif");
-        registerResponse(client, "Majorze pogoda", weatherApiClient.fetchWeatherInfo("bialystok"));
-        registerRandomResponse(client, "Majorze ile butelek nitro masz", MessageValues.NITRO.values);
+        registerResponse(client, "Cześć!", "Hej ;)");
+        registerResponse(client, "Bocie jedz", "https://tenor.com/wH0h.gif");
+        registerResponse(client, "Bocie pogoda", weatherApiClient.fetchWeatherInfo("Zagreb"));
+        registerRandomResponse(client, MessageValues.RANDOM.values);
 
     }
 
@@ -47,11 +45,11 @@ public class DiscordEvents {
                 .subscribe();
     }
 
-    private void registerRandomResponse(GatewayDiscordClient client, String input, List<String> answers) {
+    private void registerRandomResponse(GatewayDiscordClient client, List<String> answers) {
         client.getEventDispatcher().on(MessageCreateEvent.class)
                 .map(MessageCreateEvent::getMessage)
                 .filter(message -> message.getAuthor().map(user -> !user.isBot()).orElse(false))
-                .filter(message -> message.getContent().startsWith(input))
+                .filter(message -> message.getContent().startsWith("Random!"))
                 .flatMap(Message::getChannel)
                 .flatMap(channel -> channel.createMessage(RandomListElement.randomize(answers)))
                 .subscribe();

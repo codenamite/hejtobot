@@ -4,14 +4,11 @@ import com.codenamite.majorbot.commands.interfaces.Command;
 import com.codenamite.majorbot.request.weather.WeatherApiClient;
 import discord4j.core.GatewayDiscordClient;
 import discord4j.core.event.domain.message.MessageCreateEvent;
-import discord4j.core.object.entity.Message;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +31,6 @@ public class DiscordCommands {
                         weatherApiClient.fetchWeatherInfo(command.get(1)))))
                 .then());
     }
-
 
 
     public void registerCommands(GatewayDiscordClient client) {
